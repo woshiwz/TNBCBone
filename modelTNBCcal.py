@@ -41,17 +41,16 @@ Sex_map = {
     "Women": 1
 }
 
-# Radiotherapy
-Race = st.sidebar.selectbox(
-    "Race",
-    ["White", "Black","Other"]
+Rural_Urban = st.sidebar.selectbox(
+    "Rural_Urban",
+    ["<100", ">100"]
 )
 
-Race_map = {
-    "White": 0,
-    "White": 1,
-    "Other":2
+Rural_Urban_map = {
+    "<100": 0,
+    ">100": 1
 }
+
 
 # Surgery
 Radiation = st.sidebar.selectbox(
@@ -64,40 +63,7 @@ Radiation_map = {
     "Yes": 1
 }
 
-# Tumor size
-Chemotherapy = st.sidebar.selectbox(
-    "Chemotherapy ",
-    ["No", "Yes"]
-)
 
-Chemotherapy_map = {
-    "No": 0,
-    "Yes": 1
-}
-
-# T stage
-PR= st.sidebar.selectbox(
-    "PR",
-    ["Negative", "Positive"]
-)
-
-PR_map = {
-    "Negative": 0,
-    "Positive": 1
-}
-
-# N stage
-Grade = st.sidebar.selectbox(
-    "Grade",
-    ["Grade I", "Grade II", "Grade III", "Grade IV"]
-)
-
-Grade_map = {
-    "Grade I": 0,
-    "Grade II": 1,
-    "Grade III": 2,
-    "Grade IV": 3
-}
 
 
 T_stage = st.sidebar.selectbox(
@@ -142,15 +108,12 @@ Surgery_map = {
 # =========================
 x = np.array([
     Sex_map[Sex],
-    Race_map[Race],
+    Rural_Urban_map[Rural_Urban],
     Radiation_map[Radiation],
-    Chemotherapy_map[Chemotherapy],
-    PR_map[PR],
-    Grade_map[Grade],
     T_stage_map[T_stage],
     N_stage_map[N_stage],
     Surgery_map[Surgery],
-]).reshape(1, 9)
+]).reshape(1, 6)
 
 # =========================
 # Load model
